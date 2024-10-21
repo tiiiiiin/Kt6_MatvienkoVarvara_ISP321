@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace petshope.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ViewProductPage.xaml
+    /// Логика взаимодействия для ClientViewPage.xaml
     /// </summary>
-    public partial class ViewProductPage : Page
+    public partial class ClientViewPage : Page
     {
-        public ViewProductPage()
+        public ClientViewPage()
         {
             InitializeComponent();
         }

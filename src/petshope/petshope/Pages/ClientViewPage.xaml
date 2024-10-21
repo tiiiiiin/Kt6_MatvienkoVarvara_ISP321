@@ -1,4 +1,4 @@
-﻿<Page x:Class="petshope.Pages.ViewProductPage"
+﻿<Page x:Class="petshope.Pages.ClientViewPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:petshope.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ООО «Товары для животных» - доступ гостя">
+       Title="ООО «Товары для животных» - доступ клиента">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label x:Name="CountOfLabel" Content="11/65" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
-            <Label x:Name="FIOLabel" Content="Fio" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Visibility="Collapsed"></Label>
+            <Label x:Name="FIOLabel" Content="Fio" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" ></Label>
         </Grid>
         <Grid Grid.Row="1">
             <TextBox x:Name="SearchTextBox" Margin="10" HorizontalAlignment="Left" Width="140"></TextBox>
@@ -29,7 +29,7 @@
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding  ProductDescription}" Value="0">
+                        <DataTrigger Binding="{Binding ProductDescription}" Value="0">
                             <Setter Property="Background" Value="Gray"></Setter>
                         </DataTrigger>
                     </Style.Triggers>
@@ -44,7 +44,7 @@
                             <ColumnDefinition Width="150"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0">
-                            
+
                         </Image>
                         <StackPanel Grid.Column="1">
                             <TextBlock Text="{Binding , StringFormat={} Наименование товара: {0}}"/>

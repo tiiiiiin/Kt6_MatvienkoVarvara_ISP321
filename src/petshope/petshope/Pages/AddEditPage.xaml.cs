@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace petshope.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ViewProductPage.xaml
+    /// Логика взаимодействия для AddEditPage.xaml
     /// </summary>
-    public partial class ViewProductPage : Page
+    public partial class AddEditPage : Page
     {
-        public ViewProductPage()
+        public AddEditPage()
         {
             InitializeComponent();
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (Classes.Manager.MainFrame.CanGoBack)
-            {
-                Classes.Manager.MainFrame.GoBack();
-            }
         }
     }
 }
