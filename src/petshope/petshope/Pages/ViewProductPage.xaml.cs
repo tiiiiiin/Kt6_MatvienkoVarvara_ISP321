@@ -13,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace petshope
+namespace petshope.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ViewProductPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ViewProductPage : Page
     {
-        public MainWindow()
+        public ViewProductPage()
         {
             InitializeComponent();
-
-            Classes.Manager.MainFrame = MainFrame;
-            Classes.Manager.MainFrame.Navigate(new Pages.LoginPage());
         }
     }
 }
