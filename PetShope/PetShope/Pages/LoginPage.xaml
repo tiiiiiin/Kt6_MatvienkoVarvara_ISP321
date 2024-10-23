@@ -15,9 +15,8 @@
             <Label Content="Пароль: "></Label>
             <PasswordBox x:Name="PasswordBox"></PasswordBox>
             <Button x:Name="LoginButton" Margin="10" Content="Войти" Click="LoginButton_Click"></Button>
-            <Label Content="Введите капчу" Visibility="Collapsed"></Label>
+            <Label x:Name="CaptchaLabel" Content="Введите капчу" Visibility="Collapsed"></Label>
             <TextBox x:Name="CaptchaBox" Width="100" FontWeight="Bold" FontSize="16"  IsEnabled="False" Opacity="0.8" Visibility="Collapsed">
-
                 <TextBox.Background>
                     <ImageBrush ImageSource="/Resources/captcha.PNG" Stretch="UniformToFill" TileMode="None">
                         <ImageBrush.RelativeTransform>

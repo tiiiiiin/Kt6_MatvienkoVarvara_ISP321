@@ -25,11 +25,11 @@
             <RadioButton x:Name="SortDownRadioButton" Content="По убыванию" Margin="280,0,0,0" Checked="SortDownRadioButton_Checked"></RadioButton>
             <ComboBox x:Name="ManufacturerComboBox"  Margin="180,0,0,0" SelectionChanged="ManufacturerComboBox_SelectionChanged"></ComboBox>
         </Grid>
-        <ListView x:Name="ProductListView" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <ListView x:Name="ProductListView" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ProductDescription}" Value="0">
+                        <DataTrigger Binding="{Binding ProductQuantityInStock}" Value="0">
                             <Setter Property="Background" Value="Gray"></Setter>
                         </DataTrigger>
                     </Style.Triggers>
@@ -42,17 +42,18 @@
                             <ColumnDefinition Width="150"></ColumnDefinition>
                             <ColumnDefinition Width="300"></ColumnDefinition>
                             <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0">
 
                         </Image>
                         <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding , StringFormat={} Наименование товара: {0}}"/>
-                            <TextBlock Text="{Binding , StringFormat={} Описание товара: {0}}"/>
-                            <TextBlock Text="{Binding , StringFormat={} Производитель:{0}}"/>
-                            <TextBlock Text="{Binding , StringFormat={} Цена:{0}}"/>
+                            <TextBlock Text="{Binding ProductName.Name, StringFormat={}Наименование товара: {0}}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding ProductDescription, StringFormat={}Описание товара: {0}}"/>
+                            <TextBlock Text="{Binding ManufacturerProduct.Name, StringFormat={}Производитель: {0}}"/>
+                            <TextBlock Text="{Binding ProductCost, StringFormat={}Цена: {0}}"/>
                         </StackPanel>
-                        <TextBlock Grid.Column="2" Text="{Binding , StringFormat={} Наличие на складе: {0}}"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="{Binding ProductQuantityInStock, StringFormat={} Наличие на складе: {0}}"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

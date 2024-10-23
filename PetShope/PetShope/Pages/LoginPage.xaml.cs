@@ -26,7 +26,7 @@ namespace PetShope.Pages
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -41,44 +41,60 @@ namespace PetShope.Pages
                 }
                 if(errors.Length > 0)
                 {
-                    MessageBox.Show(errors.ToString(), "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(errors.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
                 if (failedAttemps > 0)
                 {
                     if (string.IsNullOrEmpty(CaptchaWriteBox.Text)) 
                     { 
-                        MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Введите капчу!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         LoadCapthca();
                         return;
                     }
                     if (!CaptchaWriteBox.Text.Equals(CaptchaBox.Text, StringComparison.Ordinal))
                     {
-                        MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Неправильная капча!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+
                         LoadCapthca();
+                        CaptchaWriteBox.Text = "";
                         return;
                     }
                 }
 
                 if (Data.TradeEntities1.GetContext().User.Any(d => d.UserLogin == LoginTextBox.Text && d.UserPassword == PasswordBox.Password))
                 {
-                    var user = Data.TradeEntities1.GetContext().User.Where(d => d.UserLogin == LoginTextBox.Text && d.UserPassword == PasswordBox.Password);
+                    var user = Data.TradeEntities1.GetContext().User.Where(d => d.UserLogin == LoginTextBox.Text && d.UserPassword == PasswordBox.Password).FirstOrDefault();
                     Classes.Manager.CurrentUser = user;
                     switch (user.Role.RoleName)
                     {
-                        case "":
-                            Classes.Manager.MainFrame.Navigate(new Pages.ViewProductPage());
+                        case "Администратор":
+                            Classes.Manager.MainFrame.Navigate(new Pages.AdminViewPage());
                             break;
-                        case "f":
-                            Classes.Manager.MainFrame.Navigate(new Pages.ViewProductPage());
+                        case "Клиент":
+                            Classes.Manager.MainFrame.Navigate(new Pages.ClientViewPage());
                             break;
-                        case "d":
-                            Classes.Manager.MainFrame.Navigate(new Pages.ViewProductPage());
+                        case "Менеджер":
+                            Classes.Manager.MainFrame.Navigate(new Pages.ManagerViewPage());
                             break;
                     }
-
-
+                    MessageBox.Show("Успех", "Успех", MessageBoxButton.OK, MessageBoxImage.Information); 
+                   
                 }
+                else
+                {
+                    MessageBox.Show("Учетная запись не найдена", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    failedAttemps++;
+                    LoadCapthca();
+                    FieldsCaptcha();
+                    if (failedAttemps > 1)
+                    {
+                        LoginButton.IsEnabled = false;
+                        await Task.Delay(10000);
+                        LoginButton.IsEnabled = true;
+                    }
+                }
+
             }
             catch(Exception ex)
             {
@@ -88,11 +104,20 @@ namespace PetShope.Pages
         }
         private void LoadCapthca()
         {
-
+            string AllowChars = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
+            string captcha = "";
+            Random random = new Random();
+            for(int i =0; i <4; i++)
+            {
+                captcha += AllowChars[random.Next(AllowChars.Length)];
+            }
+            CaptchaBox.Text = captcha;
         }
         private void FieldsCaptcha()
         {
-
+            CaptchaLabel.Visibility = Visibility.Visible;
+            CaptchaBox.Visibility = Visibility.Visible;
+            CaptchaWriteBox.Visibility = Visibility.Visible;
         }
 
         private void GuestButton_Click(object sender, RoutedEventArgs e)

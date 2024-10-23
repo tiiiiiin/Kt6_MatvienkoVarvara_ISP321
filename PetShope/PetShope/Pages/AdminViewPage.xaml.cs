@@ -22,30 +22,61 @@ namespace PetShope.Pages
     {
         public AdminViewPage()
         {
-            InitializeComponent();
+            InitializeComponent(); Init();
+        }
+
+        private void Init()
+        {
+
+        }
+
+        List<Data.Product> _currentProduct = Data.TradeEntities1.GetContext().Product.ToList();
+
+
+        private void UpDate()
+        {
+
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            UpDate();
         }
 
         private void SortUpRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            UpDate();
         }
 
         private void SortDownRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            UpDate();
         }
 
         private void ManufacturerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UpDate();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Classes.Manager.MainFrame.CanGoBack)
+            {
+                Classes.Manager.MainFrame.GoBack();
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -29,7 +29,7 @@
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding  ProductCount}" Value="0">
+                        <DataTrigger Binding="{Binding ProductQuantityInStock}" Value="0">
                             <Setter Property="Background" Value="Gray"></Setter>
                         </DataTrigger>
                     </Style.Triggers>
@@ -48,12 +48,12 @@
 
                         </Image>
                         <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding , StringFormat={} Наименование товара: {0}}"/>
-                            <TextBlock Text="{Binding , StringFormat={} Описание товара: {0}}"/>
-                            <TextBlock Text="{Binding , StringFormat={} Производитель:{0}}"/>
-                            <TextBlock Text="{Binding , StringFormat={} Цена:{0}}"/>
+                            <TextBlock Text="{Binding ProductName.Name, StringFormat={}Наименование товара: {0}}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding ProductDescription, StringFormat={}Описание товара: {0}}"/>
+                            <TextBlock Text="{Binding ManufacturerProduct.Name, StringFormat={}Производитель: {0}}"/>
+                            <TextBlock Text="{Binding ProductCost, StringFormat={}Цена: {0}}"/>
                         </StackPanel>
-                        <TextBlock Grid.Column="2" Text="{Binding , StringFormat={} Наличие на складе: {0}}"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="{Binding ProductQuantityInStock, StringFormat={} Наличие на складе: {0}}"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

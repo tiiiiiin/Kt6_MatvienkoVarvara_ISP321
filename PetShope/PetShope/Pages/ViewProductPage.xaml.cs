@@ -23,31 +23,50 @@ namespace PetShope.Pages
         public ViewProductPage()
         {
             InitializeComponent();
+            Init();
         }
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Init()
+        {
+            ProductListView.ItemsSource = Data.TradeEntities1.GetContext().Product.ToList();
+            CountOfLabel.Content = $"{Data.TradeEntities1.GetContext().Product.Count()}" + $"/{Data.TradeEntities1.GetContext().Product.Count()}";
+            
+            
+        }
+
+        List<Data.Product> _currentProduct = Data.TradeEntities1.GetContext().Product.ToList();
+
+
+        private void UpDate()
         {
 
+        }
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpDate();
         }
 
         private void SortUpRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            UpDate();
         }
 
         private void SortDownRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            UpDate();
         }
 
         private void ManufacturerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UpDate();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Classes.Manager.MainFrame.CanGoBack)
+            {
+                Classes.Manager.MainFrame.GoBack();
+            }
         }
     }
 }
