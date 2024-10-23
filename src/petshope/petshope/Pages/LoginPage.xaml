@@ -10,16 +10,16 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="Login"></Label>
+            <Label Content="Логин: "></Label>
             <TextBox x:Name="LoginTextBox"></TextBox>
-            <Label Content="Password"></Label>
+            <Label Content="Пароль: "></Label>
             <PasswordBox x:Name="PasswordBox"></PasswordBox>
-            <Button x:Name="LoginButton" Margin="10" Content="LOG in"></Button>
-            <TextBlock Text="Введите капчу" Visibility="Collapsed"></TextBlock>
-            <TextBox x:Name="CaptchaBox"  IsEnabled="False" Opacity="0.8" Visibility="Collapsed">
+            <Button x:Name="LoginButton" Margin="10" Content="Войти"></Button>
+            <Label Content="Введите капчу" Visibility="Collapsed"></Label>
+            <TextBox x:Name="CaptchaBox" Width="100" FontWeight="Bold" FontSize="16"  IsEnabled="False" Opacity="0.8" Visibility="Collapsed">
                 
                 <TextBox.Background>
-                    <ImageBrush ImageSource="/Resources/captcha.PNG" Stretch="Uniform" TileMode="None">
+                    <ImageBrush ImageSource="/Resources/captcha.PNG" Stretch="UniformToFill" TileMode="None">
                         <ImageBrush.RelativeTransform>
                             <TransformGroup>
                                 <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1" ScaleY="1"/>
@@ -31,8 +31,8 @@
                     </ImageBrush>
                 </TextBox.Background>
             </TextBox>
-            <TextBox x:Name="CaptchaWriteBox" Visibility="Collapsed"></TextBox>
-            <Button x:Name="GuestButton" Content="Guest enter" Margin="10" Click="GuestButton_Click"></Button>
+            <TextBox x:Name="CaptchaWriteBox" Width="100" Margin="10" Visibility="Collapsed"></TextBox>
+            <Button x:Name="GuestButton" Content="Войти как гость" Margin="10" Click="GuestButton_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

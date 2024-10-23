@@ -32,5 +32,20 @@ namespace petshope.Pages
                 Classes.Manager.MainFrame.GoBack();
             }
         }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SortUpRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SortDownRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
