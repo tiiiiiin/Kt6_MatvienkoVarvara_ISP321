@@ -22,12 +22,13 @@ namespace PetShope.Data
         }
         public static TradeEntities1 GetContext()
         {
-            if(_context == null)
+            if (_context == null)
             {
                 _context = new TradeEntities1();
             }
             return _context;
         }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

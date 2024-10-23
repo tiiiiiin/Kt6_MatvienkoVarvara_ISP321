@@ -27,7 +27,23 @@ namespace PetShope.Pages
 
         private void Init()
         {
+            ProductListView.ItemsSource = Data.TradeEntities1.GetContext().Product.ToList();
+            CountOfLabel.Content = $"{Data.TradeEntities1.GetContext().Product.Count()}" + $"/{Data.TradeEntities1.GetContext().Product.Count()}";
+            if (Classes.Manager.CurrentUser != null)
+            {
+                FIOLabel.Content = $"{Classes.Manager.CurrentUser.UserSurname} "
+                    + $" {Classes.Manager.CurrentUser.UserName}"
+                    + $" {Classes.Manager.CurrentUser.UserPatronymic}";
+            }
+            SearchTextBox.Text = string.Empty;
+            SortUpRadioButton.IsChecked = false;
+            SortDownRadioButton.IsChecked = false;
 
+
+            var manufactlist = Data.TradeEntities1.GetContext().ManufacturerProduct.ToList();
+            manufactlist.Insert(0, new Data.ManufacturerProduct { Name = "Все производители" });
+            ManufacturerComboBox.SelectedIndex = 0;
+            ManufacturerComboBox.ItemsSource = manufactlist;
         }
 
         List<Data.Product> _currentProduct = Data.TradeEntities1.GetContext().Product.ToList();

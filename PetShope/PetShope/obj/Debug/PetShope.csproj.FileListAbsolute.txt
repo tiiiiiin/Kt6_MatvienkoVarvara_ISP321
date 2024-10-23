@@ -65,3 +65,4 @@ C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\PetShope\PetShope\obj\Debug
 C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\PetShope\PetShope\obj\Debug\PetShope.csproj.GenerateResource.cache
 C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\PetShope\PetShope\obj\Debug\PetShope.csproj.CoreCompileInputs.cache
 C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\PetShope\PetShope\obj\Debug\PetShope.csproj.CopyComplete
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\PetShope\PetShope\obj\Debug\PetShope.csproj.AssemblyReference.cache

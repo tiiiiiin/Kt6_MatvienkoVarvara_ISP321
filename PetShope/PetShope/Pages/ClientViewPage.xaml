@@ -45,7 +45,7 @@
                             <ColumnDefinition Width="150"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0">
-
+                          
                         </Image>
                         <StackPanel Grid.Column="1">
                             <TextBlock Text="{Binding ProductName.Name, StringFormat={}Наименование товара: {0}}" FontWeight="Bold"/>

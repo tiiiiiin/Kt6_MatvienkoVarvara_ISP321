@@ -46,7 +46,16 @@
                             <ColumnDefinition Width="150"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0">
-
+                            <Image.Source>
+                                <Binding Path="ProductPhoto">
+                                    <Binding.TargetNullValue>
+                                        <BitmapImage UriSource="/Resources/picture.PNG"></BitmapImage>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                                   
+                           
+                               
+                            </Image.Source>
                         </Image>
                         <StackPanel Grid.Column="1">
                             <TextBlock Text="{Binding ProductName.Name, StringFormat={}Наименование товара: {0}}" FontWeight="Bold"/>

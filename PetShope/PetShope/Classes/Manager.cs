@@ -18,7 +18,7 @@ namespace PetShope.Classes
             try
             {
                 var list = Data.TradeEntities1.GetContext().Product.ToList();
-                foreach(var item in list)
+                foreach (var item in list)
                 {
                     string path = Directory.GetCurrentDirectory() + @"\img\" + item.NamePhoto;
                     if (File.Exists(path))
@@ -28,8 +28,10 @@ namespace PetShope.Classes
                 }
                 Data.TradeEntities1.GetContext().SaveChanges();
             }
-            catch { }
+            catch (Exception ex) 
+            { 
 
+            }
         }
     }
 }

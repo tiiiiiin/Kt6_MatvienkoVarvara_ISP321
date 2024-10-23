@@ -79,7 +79,6 @@ namespace PetShope.Pages
                             break;
                     }
                     MessageBox.Show("Успех", "Успех", MessageBoxButton.OK, MessageBoxImage.Information); 
-                   
                 }
                 else
                 {
