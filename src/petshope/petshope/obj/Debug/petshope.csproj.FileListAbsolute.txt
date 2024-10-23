@@ -1,0 +1,7 @@
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\src\petshope\petshope\obj\Debug\petshope.csproj.AssemblyReference.cache
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\src\petshope\petshope\obj\Debug\MainWindow.g.cs
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\src\petshope\petshope\obj\Debug\Pages\AddEditPage.g.cs
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\src\petshope\petshope\obj\Debug\Pages\LoginPage.g.cs
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\src\petshope\petshope\obj\Debug\App.g.cs
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\src\petshope\petshope\obj\Debug\petshope_MarkupCompile.cache
+C:\Users\comcuru\Desktop\Kt6_MatvienkoVarvara_ISP321\src\petshope\petshope\obj\Debug\petshope_MarkupCompile.lref
